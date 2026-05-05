@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJ Pods</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="logo">GJ Pods</div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#promocoes">Promoções</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="cart" onclick="abrirPagamento()">
+        🛒 <span id="cart-count">0</span>
+    </div>
+</header>
+
+<section class="hero" id="inicio">
+    <div class="hero-text">
+        <h1>Os melhores Pods com entrega rápida</h1>
+        <p>Ignite, Oxbar e Elfbar com os melhores sabores e qualidade garantida.</p>
+        <a href="#produtos">
+            <button>Ver Produtos</button>
+        </a>
+    </div>
+</section>
+
+<section class="sobre-loja">
+    <h2>Sobre a GJ Pods</h2>
+    <p>
+        A <strong>GJ Pods</strong> é especializada na venda de pods descartáveis das melhores marcas,
+        como <strong>Ignite, Oxbar e Elfbar</strong>, oferecendo sabores variados, qualidade garantida
+        e entrega rápida.
+    </p>
+</section>
+
+<section class="marcas">
+    <div class="marca-card">🔥 Ignite</div>
+    <div class="marca-card">⚡ Oxbar</div>
+    <div class="marca-card">💨 Elfbar</div>
+</section>
+
+<section class="produtos" id="produtos">
+    <h2>Nossos Produtos</h2>
+    <div class="grid"></div>
+</section>
+
+<section class="promocoes" id="promocoes">
+    <h2>Promoção Especial</h2>
+
+    <div class="promo-card">
+        <h3>🎰 Roleta Promocional</h3>
+        <p>Gire a roleta e ganhe <strong>5 Pods Aleatórios por R$ 180,00</strong></p>
+        <button onclick="girarRoleta()">Girar Roleta</button>
+        <div id="resultadoRoleta"></div>
+    </div>
+</section>
+
+<section class="contato" id="contato">
+    <h2>Contato</h2>
+
+    <div class="contato-box">
+        <a href="https://wa.me/5511984792709" target="_blank" class="contato-btn whatsapp">
+            📱 WhatsApp
+        </a>
+
+
+        </a>
+    </div>
+</section>
+
+<div class="modal" id="modalPagamento">
+    <div class="modal-content">
+        <h2>Seu Carrinho</h2>
+
+        <div id="listaCarrinho"></div>
+
+        <p class="total">
+            Total: R$ <span id="totalCarrinho">0.00</span>
+        </p>
+
+        <select id="metodoPagamento" onchange="mostrarMetodo()">
+            <option value="cartao">Cartão</option>
+            <option value="pix">PIX</option>
+        </select>
+
+        <div id="cartaoBox" class="metodo">
+            <input type="text" placeholder="Número do Cartão" maxlength="19">
+            <input type="text" placeholder="Nome no Cartão">
+            <input type="text" placeholder="CPF" maxlength="14">
+
+            <div class="linha-cartao">
+                <input type="text" placeholder="MM/AA" maxlength="5" oninput="formatarValidade(this)">
+                <input type="text" placeholder="CVV" maxlength="3">
+            </div>
+
+            <button onclick="finalizarCompra()">Pagar com Cartão</button>
+        </div>
+
+        <div id="pixBox" class="metodo" style="display:none;">
+            <p>Chave PIX:</p>
+            <strong>gjpods@pix.com</strong>
+            <button onclick="finalizarCompra()">Confirmar PIX</button>
+        </div>
+
+        <button class="fechar" onclick="fecharPagamento()">Fechar</button>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 GJ Pods - Todos os direitos reservados</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
